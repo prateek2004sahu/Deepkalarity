@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepKlarity Recipe Extractor</title>
+    <!-- This links your CSS to make it look pretty -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>DeepKlarity - Recipe Extractor</h1>
+        
+        <div class="tabs">
+            <button id="tab1-btn" class="active" onclick="switchTab('tab1')">Extract Recipe</button>
+            <button id="tab2-btn" onclick="switchTab('tab2')">Saved Recipes</button>
+        </div>
+
+        <!-- TAB 1: EXTRACTION -->
+        <div id="tab1" class="tab-content">
+            <div class="input-group">
+                <input type="text" id="url-input" placeholder="Enter 'test_recipe' or a blog URL">
+                <button id="extract-btn" onclick="extractRecipe()">Extract Recipe</button>
+            </div>
+            <div id="loader" class="hidden">Scraping & Generating with AI... (Takes ~10s)</div>
+            <div id="result-container" class="hidden"></div>
+        </div>
+
+        <!-- TAB 2: HISTORY -->
+        <div id="tab2" class="tab-content hidden">
+            <table id="history-table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Cuisine</th>
+                        <th>Difficulty</th>
+                        <th>Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- History rows will be injected here by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- DETAILS MODAL -->
+        <div id="modal" class="modal hidden" onclick="if(event.target===this)closeModal()">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <div id="modal-body">
+                    <!-- Recipe details will be injected here by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- This links your JavaScript to make it work -->
+    <script src="app.js"></script>
+</body>
+</html>
